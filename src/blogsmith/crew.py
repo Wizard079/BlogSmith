@@ -3,8 +3,6 @@ from crewai.project import CrewBase, agent, crew, task
 from blogsmith.tools.custom_tool import SaveFileTool , SearchNewsTool , WordSearchingTool
 from blogsmith.env import DEBUG
 
-print(DEBUG)
-exit()
 @CrewBase
 class Blogsmith():
     """Blogsmith crew"""
