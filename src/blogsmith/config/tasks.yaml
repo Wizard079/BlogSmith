@@ -1,17 +1,37 @@
-research_task:
+gather_blog_context:
   description: >
-    Conduct a thorough research about {topic}
-    Make sure you find any interesting and relevant information given
-    the current year is {current_year}.
+    Conduct comprehensive research on the topic: {topic}.
+    Identify key insights, recent developments, industry trends, SEO keywords, quotes from experts, and relevant data.
+    Ensure the information is up-to-date, engaging, and valuable for crafting a compelling blog.
+    use all recent news to build up the context for the blog based on the {topic} and the {tone}
+    
   expected_output: >
-    A list with 10 bullet points of the most relevant information about {topic}
-  agent: researcher
+    A structured list of:
+    - 10 bullet points with concise insights or stats
+    - some brief description about the recent news and developments
+    - 2-3 references with the source links
+    - A paragraph summarizing the angle to take for the blog
+  agent: context_collector
 
-reporting_task:
+write_blog_content:
   description: >
-    Review the context you got and expand each topic into a full section for a report.
-    Make sure the report is detailed and contains any and all relevant information.
+    Using the research context provided, write an engaging and informative blog post on the topic: {topic}.
+    Follow a clear structure with an introduction, main sections based on key insights, and a conclusion.
+    Adapt the tone to be {tone} and ensure the content is optimized for readability and SEO. and pass the metadata for like title, description, keywords, slug to the exporter
+    Use the word search tool for finding some reference words for making blog more interesting and SEO friendly.
   expected_output: >
-    A fully fledged report with the main topics, each with a full section of information.
-    Formatted as markdown without '```'
-  agent: reporting_analyst
+    A blog post with:
+    - A catchy title and introduction
+    - Multiple sections (based on insights) with headers and rich explanations
+    - A conclusion summarizing the key takeaways
+  agent: content_creator
+
+finalize_and_export:
+  description: >
+    Take the blog post provided by the content creator and finalize it for publication.
+    Ensure it's formatted in clean markdown, flows well, and integrates the required SEO keywords.
+    Then, generate structured metadata (title, description, keywords, slug, etc.) and export it to a json file as string .
+  expected_output: >
+    - A clean, well-structured Markdown file of the final blog content, saved as markdown
+    - A JSON file containing metadata with keys: title, description, keywords, slug, saved as string in json 
+  agent: exporter
