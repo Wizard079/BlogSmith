@@ -63,3 +63,13 @@ WordSearchingTool: Retrieves related or semantic keyword suggestions using Datam
 SaveFileTool: Handles the final export of blog content and metadata in .md and .json formats.
 
 These tools are injected into agents contextually, keeping each agent focused, modular, and API-aware.
+
+## Example usage 
+
+```sh
+./run.sh "how to improve memory" --tone="medical"
+```
+
+If topic and tone are new to agent then it might take around 80s to write the blog , but if there are similare topic in blog post then thanks to the **requests_cache** it will only take 30-40s since most of requests are cache during run
+
+you can find output of this in the [blog](./output/enhancing-cognitive-function_blog.md) and [metadata](./output/enhancing-cognitive-function_metadata.json)

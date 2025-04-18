@@ -15,7 +15,8 @@ write_blog_content:
     Based on the research provided, generate a complete blog post about: {topic}, using a {tone} tone.
     Write a compelling title, introduction, several structured sections (from key insights), and a strong conclusion.
     Leverage the word search tool to enhance SEO and vocabulary.
-    Also provide metadata including title, description, keywords, and suggested URL slug for export.
+    For the exporter provide metadata including title, description, keywords, and suggested URL slug for export. don't include this in the blog post.
+    Ensure the content is well-structured, engaging, and optimized for search engines.
   expected_output: >
     - A full blog post with Markdown structure (title, H2 sections, intro, conclusion)
     - Optimized language using relevant keywords and tone

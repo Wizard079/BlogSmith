@@ -20,14 +20,18 @@ if [ ! -d ".venv" ]; then
 else
     source .venv/bin/activate
 fi
+
+mkdir -p logs
+
 echo "Running the agent"
-start_time=$(date +%s)
 timestamp=$(date)
-echo $timestamp >> logs/run.log
-echo "===========================" >> logs/run.log
-echo "Agent is running in background all logs are in logs/run_$start_time.log"
-uv run run_crew "$@" > logs/run_$start_time.log 
+start_time=$(date +%s)
+log_file="logs/run_$start_time.log"
+echo "$timestamp" >> "$log_file"
+echo "===========================" >> "$log_file"
+echo "Agent is running in background. All logs are in $log_file"
+uv run run_crew "$@" >> "$log_file"
 end_time=$(date +%s)
-elapsed_time=$((end_time - start_time))
-echo "Time taken for the blog writing is: $elapsed_time seconds"
+echo "Execution time: $(($end_time - $start_time)) seconds"
+echo "Execution time: $(($end_time - $start_time)) seconds" >>"$log_file"
 
