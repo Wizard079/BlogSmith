@@ -70,6 +70,6 @@ These tools are injected into agents contextually, keeping each agent focused, m
 ./run.sh "how to improve memory" --tone="medical"
 ```
 
-If topic and tone are new to agent then it might take around 80s to write the blog , but if there are similare topic in blog post then thanks to the **requests_cache** it will only take 30-40s since most of requests are cache during run
+If the topic and tone are new to the agent, it might take around 80 seconds to write the blog. However, if there are similar topics in previous blog posts, thanks to requests_cache, it will only take around 30-40 seconds, as most of the requests are cached during the run.
 
-you can find output of this in the [blog](./output/enhancing-cognitive-function_blog.md) and [metadata](./output/enhancing-cognitive-function_metadata.json)
+You can find the output of this in the [blog](./output/enhancing-cognitive-function_blog.md) and [metadata](./output/enhancing-cognitive-function_metadata.json)
